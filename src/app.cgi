@@ -749,9 +749,9 @@ EOF
 sub user_logic
     {
     if( $cpi_vars::FORM{func} eq "admin" )
-	{ &admin_page(); }
+	{ &admin_page("form"); }
     else
-        { &admin_page(); }
+        { &admin_page("form"); }
     }
 
 #########################################################################
