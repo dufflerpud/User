@@ -122,11 +122,12 @@ sub who
 	my $inactivity = time - $st_mtime;
 	if( $inactivity <= $cpi_vars::LOGIN_TIMEOUT )
 	    {
-	    my( $user, $lang ) = &read_lines($fname);
+	    my( $realuser, $user, $lang ) = &read_lines($fname);
+	    my $disuser = ( $realuser eq $user ? $user : "$user/$realuser" );
 	    $results{$sidfile} =
 		sprintf(
 		    "<tr><td>%s</td><td>%2s</td><td>%02d:%02d:%02d</td></tr>\n",
-		    $user, $lang,
+		    $disuser, $lang,
 		    $inactivity/3600, ($inactivity/60)%60, $inactivity % 60 );
 	    }
 	}
