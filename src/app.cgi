@@ -483,9 +483,10 @@ function switchuserfnc()
         {
 	if( switchuser.options[ switchuser.selectedIndex ].value != "*" )
 	    {
-	    USER.value = switchuser.options[ switchuser.selectedIndex ].value;
+	    //USER.value = switchuser.options[ switchuser.selectedIndex ].value;
 	    }
-	modrequest.value = "";
+	modrequest.value = "switch_user";
+	func.value = "";
 	submit();
 	}
     }
@@ -564,7 +565,7 @@ EOF
     my %confirmed = ();
     foreach my $fld ( @cpi_vars::CONFIRM_FIELDS )
         {
-	$current{$fld} = &dbget($cpi_vars::ACCOUNTDB,"users",$cpi_vars::USER,$fld);
+	$current{$fld} = &dbget($cpi_vars::ACCOUNTDB,"users",$cpi_vars::USER,$fld)||"";
 	my $lf = &dbget($cpi_vars::ACCOUNTDB,"users",$cpi_vars::USER,"last".$fld) || "";
 	if( ! $current{$fld} )
 	    { $confirmed{$fld} = ""; }
@@ -752,15 +753,12 @@ EOF
 #########################################################################
 sub user_logic
     {
-    if( $cpi_vars::FORM{func} eq "admin" )
-	{ &admin_page(); }
-    else
-        { &admin_page(); }
+#    if( $cpi_vars::FORM{func} eq "admin" )
+#	{ &admin_page(); }
+#    else
+#        {}
+    &admin_page();
     }
-
-#########################################################################
-#	Go read through all the the things that need to be translated.	#
-#########################################################################
 
 #########################################################################
 #	Main								#
