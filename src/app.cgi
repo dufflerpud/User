@@ -46,7 +46,7 @@ use cpi_translate qw(breakup_and_translate_strings xprint);
 use cpi_compress_integer qw( compress_integer );
 use cpi_db qw(db_readable dbget dbpop dbput dbread dbwrite dbadd dbarr);
 use cpi_user qw(logout_select can_cgroup can_cuser can_suser all_users
- group_to_name groups write_sid );
+ name_to_group group_to_name groups write_sid );
 use cpi_setup qw(setup);
 
 $cpi_vars::TABLE_TAGS	= "bgcolor=\"#c0c0d0\"";
