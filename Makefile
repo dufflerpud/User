@@ -31,9 +31,8 @@
 PROJECTSDIR?=$(shell echo $(CURDIR) | sed -e 's+/projects/.*+/projects+')
 include $(PROJECTSDIR)/common/Makefile.std
 
-test:		$(RESDIR)/.must_exist
-		$(BINDIR)/* < tests/1 > $(RESDIR)/1
+# Testing falls through to std_test which will see if the CGI script runs
 
 %:
 		@echo "Invoking std_$@ rule:"
-		@$(MAKE) std_$@ ORIGINAL_TARGET=$@
+		@$(MAKE) ORIGINAL_TARGET=$@ std_$@
