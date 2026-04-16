@@ -31,8 +31,9 @@
 PROJECTSDIR?=$(shell echo $(CURDIR) | sed -e 's+/projects/.*+/projects+')
 include $(PROJECTSDIR)/common/Makefile.std
 
-test:		$(RESDIR)/.must_exist
-		$(BINDIR)/* < tests/1 > $(RESDIR)/1
+# There is no test specific for this web application.  std_test will do.
+#test:		$(RESDIR)/.must_exist
+#		$(BINDIR)/* < tests/1 > $(RESDIR)/1
 
 %:
 		@echo "Invoking std_$@ rule:"
